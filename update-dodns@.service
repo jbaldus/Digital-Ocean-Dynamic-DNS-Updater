@@ -1,0 +1,9 @@
+[Unit]
+Name=UpdateDNS
+Description=Updates DigitalOcean's DNS record to point to 
+Wants=network-online.target
+
+[Service]
+ExecStart=/usr/bin/env python3 /usr/local/bin/update-dodns.py '*' %i
+Type=oneshot
+Environment=DIGITAL_OCEAN_TOKEN=<Token Goes Here>

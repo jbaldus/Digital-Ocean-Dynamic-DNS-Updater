@@ -1,0 +1,11 @@
+[Unit]
+Name=UpdateDONDSTimer
+Description=Timer to periodically update Digital Ocean DNS with our external IP address
+Wants=network-online.target
+
+[Timer]
+Unit=update-dodns@%i.service
+OnActiveSec=1h
+
+[Install]
+WantedBy=timers.target
